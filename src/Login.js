@@ -19,6 +19,7 @@ function Login(props) {
   const createPassword2Input = useFormInput('');
   const [createRoleInput, setCreateRoleInput] = useState('admin');
   const [modalError, setModalError] = useState(null);
+  const [modalSuccess, setModalSuccess] = useState(null);
 
   const [formMessage, setFormMessage] = useState('');
  
@@ -57,6 +58,7 @@ function Login(props) {
 
   const createUser = async () => {
     setModalError('');
+    setModalSuccess('');
     if(createUsernameInput.value && createPassword1Input.value && createPassword1Input.value === createPassword2Input.value) {
       await fetch('https://lrkydfoybb.execute-api.us-east-2.amazonaws.com/prod/register', {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -73,6 +75,7 @@ function Login(props) {
       })
       .then(res => res.json())
       .then(res => {
+        setModalSuccess('User created successfully. Please Login now.')
           console.log(res);
       });
     } else {
@@ -138,6 +141,7 @@ function Login(props) {
                 <input type="radio" name="role" value={createRoleInput} onChange={() => setCreateRoleInput('customer')} /> Customer
             </div>
             {modalError && <><small style={{ color: 'red' }}>{modalError}</small><br /></>}<br />
+            {modalSuccess && <><small style={{ color: 'green' }}>{modalSuccess}</small><br /></>}<br />
         </ModalBody>
         <ModalFooter>
             <Button className="popup-button" variant="light" onClick={handleClose}>
