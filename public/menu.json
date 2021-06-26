@@ -1,0 +1,27 @@
+
+[
+    {
+        "itemId": "1",
+        "itemName": "Biriyani",
+        "price": 15,
+        "img": ""
+    },
+    {
+        "itemId": "2",
+        "itemName": "Burger",
+        "price": 8,
+        "img": ""
+    },
+    {
+        "itemId": "3",
+        "itemName": "Pizza",
+        "price": 12,
+        "img": ""
+    },
+    {
+        "itemId": "4",
+        "itemName": "Noodles",
+        "price": 10,
+        "img": ""
+    }
+]
